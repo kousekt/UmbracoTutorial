@@ -502,8 +502,10 @@
     <Compile Include="Controllers\SiteLayoutController.cs" />
     <Compile Include="Models\BlogPreview.cs" />
     <Compile Include="Models\FeaturedItem.cs" />
+    <Compile Include="Models\LatestBlogPost.cs" />
     <Compile Include="Models\NavigationLink.cs" />
     <Compile Include="Models\NavigationListItem.cs" />
+    <Compile Include="Models\TestimonialsModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
