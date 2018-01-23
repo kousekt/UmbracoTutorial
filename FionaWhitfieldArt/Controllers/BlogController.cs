@@ -12,17 +12,16 @@ namespace FionaWhitfieldArt.Controllers
     public class BlogController : SurfaceController
     {
         private const string PARTIAL_VIEW_FOLDER = "~/Views/Partials/Blog/";
-        public ActionResult RenderPostList()
+
+        public ActionResult RenderPostList(int maxNumberOfItems)
         {
             List<BlogPreview> model = new List<BlogPreview>();
 
             // get to the home page
             IPublishedContent blogPage = CurrentPage.AncestorOrSelf(1).DescendantsOrSelf().Where(x => x.DocumentTypeAlias == "blog").FirstOrDefault();
            // get all those fieldsets and put them in featured items
-
-
-            // https://github.com/kgiszewski/Archetype/issues/413
-            foreach (IPublishedContent page in blogPage.Children.OrderByDescending(x=>x.UpdateDate))
+            
+            foreach (IPublishedContent page in blogPage.Children.OrderByDescending(x=>x.UpdateDate).Take(maxNumberOfItems))
             {
                 var imageId = page.GetPropertyValue<int>("articleimage");
                 var mediaItem = Umbraco.Media(imageId);

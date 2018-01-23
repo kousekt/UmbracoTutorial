@@ -54,12 +54,30 @@ namespace FionaWhitfieldArt.Controllers
 
         public ActionResult RenderBlog()
         {
-            return PartialView(PARTIAL_VIEW_FOLDER + "_Blog.cshtml");
+            
+            // short cut version to get you the home page.
+            IPublishedContent homePage = CurrentPage.AncestorOrSelf("home");
+            string title = homePage.GetPropertyValue<string>("latestBlogPostsTitle");
+            string intro = homePage.GetPropertyValue("latestBlogPostsIntroduction").ToString(); // don't want the html
+            LatestBlogPost model = new LatestBlogPost()
+            {
+                Title = title,
+                Introduction = intro
+            };
+            return PartialView(PARTIAL_VIEW_FOLDER + "_Blog.cshtml", model);
         }
 
         public ActionResult RenderClients()
         {
-            return PartialView(PARTIAL_VIEW_FOLDER + "_Clients.cshtml");
+            IPublishedContent homePage = CurrentPage.AncestorOrSelf("home");
+            string title = homePage.GetPropertyValue<string>("testimonialsTitle");
+            string intro = homePage.GetPropertyValue("testimonialsIntroduction").ToString(); // don't want the html
+            TestimonialsModel model = new TestimonialsModel()
+            {
+                Title = title,
+                Introduction = intro
+            };
+            return PartialView(PARTIAL_VIEW_FOLDER + "_Clients.cshtml", model);
         }
     }
 }
