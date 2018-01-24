@@ -309,6 +309,13 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <None Include="packages.config" />
+    <None Include="scripts\jquery.validate-vsdoc.js" />
+    <Content Include="scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="scripts\jquery.validate.js" />
+    <Content Include="scripts\jquery.validate.min.js" />
+    <Content Include="scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Partials\Grid\Editors\Textstring.cshtml" />
     <Content Include="Views\Partials\Grid\Editors\Rte.cshtml" />
@@ -410,6 +417,10 @@
     <Content Include="Views\Partials\SiteLayout\_TitleControls.cshtml" />
     <Content Include="Views\BlogPost.cshtml" />
     <Content Include="Views\Partials\Blog\_PostList.cshtml" />
+    <Content Include="Views\FeedTemplate.cshtml" />
+    <Content Include="Views\Search.cshtml" />
+    <Content Include="Views\Partials\Search\_SearchForm.cshtml" />
+    <Content Include="Views\Partials\Search\_SearchResults.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -499,12 +510,18 @@
   <ItemGroup>
     <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\SiteLayoutController.cs" />
+    <Compile Include="Helpers\SearchHelper.cs" />
     <Compile Include="Models\BlogPreview.cs" />
     <Compile Include="Models\FeaturedItem.cs" />
     <Compile Include="Models\LatestBlogPost.cs" />
     <Compile Include="Models\NavigationLink.cs" />
     <Compile Include="Models\NavigationListItem.cs" />
+    <Compile Include="Models\PagingBoundsModel.cs" />
+    <Compile Include="Models\SearchGroup.cs" />
+    <Compile Include="Models\SearchResultsModel.cs" />
+    <Compile Include="Models\SearchViewModel.cs" />
     <Compile Include="Models\TestimonialModel.cs" />
     <Compile Include="Models\TestimonialsModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -9,6 +9,11 @@ using Umbraco.Web;
 using Umbraco.Web.Mvc;
 using Archetype.Models;
 
+// RSS feed example - https://www.youtube.com/watch?v=vW4UWibtLHY
+
+// Search - https://codeshare.co.uk/blog/how-to-search-by-document-type-and-property-in-umbraco/
+// https://www.youtube.com/watch?v=B9NeqMN9jIw&t=2597s
+
 namespace FionaWhitfieldArt.Controllers
 {
     // https://www.youtube.com/watch?v=6WzNPlKks-0&t=1256s
