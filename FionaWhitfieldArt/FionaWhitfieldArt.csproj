@@ -494,7 +494,7 @@
     <Content Include="Views\Partials\SiteLayout\_Intro.cshtml" />
     <Content Include="Views\Partials\Home\_Services.cshtml" />
     <Content Include="Views\Partials\Home\_Blog.cshtml" />
-    <Content Include="Views\Partials\Home\_Clients.cshtml" />
+    <Content Include="Views\Partials\Home\_Testimonials.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\BlogController.cs" />
@@ -505,6 +505,7 @@
     <Compile Include="Models\LatestBlogPost.cs" />
     <Compile Include="Models\NavigationLink.cs" />
     <Compile Include="Models\NavigationListItem.cs" />
+    <Compile Include="Models\TestimonialModel.cs" />
     <Compile Include="Models\TestimonialsModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

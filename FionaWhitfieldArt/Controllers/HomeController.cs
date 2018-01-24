@@ -67,17 +67,35 @@ namespace FionaWhitfieldArt.Controllers
             return PartialView(PARTIAL_VIEW_FOLDER + "_Blog.cshtml", model);
         }
 
-        public ActionResult RenderClients()
+        public ActionResult RenderTestimonials()
         {
             IPublishedContent homePage = CurrentPage.AncestorOrSelf("home");
             string title = homePage.GetPropertyValue<string>("testimonialsTitle");
             string intro = homePage.GetPropertyValue("testimonialsIntroduction").ToString(); // don't want the html
+
+            List<TestimonialModel> testimonials = new List<TestimonialModel>();
+            ArchetypeModel testimonialsList = homePage.GetPropertyValue<ArchetypeModel>("testimonialList");
+            if (testimonialsList != null)
+            {
+                foreach (ArchetypeFieldsetModel fsm in testimonialsList.Take(3))
+                {
+                    string name = fsm.GetValue<string>("name");
+                    string quote = fsm.GetValue<string>("quote");
+                    testimonials.Add(new TestimonialModel()
+                    {
+                        Name = name,
+                        Quote = quote
+                    });
+                }
+            }
+
             TestimonialsModel model = new TestimonialsModel()
             {
                 Title = title,
-                Introduction = intro
+                Introduction = intro,
+                Testimonials = testimonials
             };
-            return PartialView(PARTIAL_VIEW_FOLDER + "_Clients.cshtml", model);
+            return PartialView(PARTIAL_VIEW_FOLDER + "_Testimonials.cshtml", model);
         }
     }
 }

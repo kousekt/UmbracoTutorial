@@ -19,7 +19,7 @@ using Umbraco.ModelsBuilder;
 using Umbraco.ModelsBuilder.Umbraco;
 
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "6a5823d2034d277a")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "99bec78c54c80860")]
 [assembly:System.Reflection.AssemblyVersion("0.0.0.3")]
 
 namespace Umbraco.Web.PublishedContentModels
@@ -83,6 +83,15 @@ namespace Umbraco.Web.PublishedContentModels
 		public string LatestBlogPostsTitle
 		{
 			get { return Umbraco.Web.PublishedContentModels.LatestBlogPostsControl.GetLatestBlogPostsTitle(this); }
+		}
+
+		///<summary>
+		/// Testimonial List: Enter the testimonials to display
+		///</summary>
+		[ImplementPropertyType("testimonialList")]
+		public Archetype.Models.ArchetypeModel TestimonialList
+		{
+			get { return Umbraco.Web.PublishedContentModels.TestimonialsControls.GetTestimonialList(this); }
 		}
 
 		///<summary>
@@ -793,6 +802,9 @@ namespace Umbraco.Web.PublishedContentModels
 	/// <summary>Testimonials Controls</summary>
 	public partial interface ITestimonialsControls : IPublishedContent
 	{
+		/// <summary>Testimonial List</summary>
+		Archetype.Models.ArchetypeModel TestimonialList { get; }
+
 		/// <summary>Testimonials Introduction</summary>
 		IHtmlString TestimonialsIntroduction { get; }
 
@@ -824,6 +836,18 @@ namespace Umbraco.Web.PublishedContentModels
 		{
 			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
 		}
+
+		///<summary>
+		/// Testimonial List: Enter the testimonials to display
+		///</summary>
+		[ImplementPropertyType("testimonialList")]
+		public Archetype.Models.ArchetypeModel TestimonialList
+		{
+			get { return GetTestimonialList(this); }
+		}
+
+		/// <summary>Static getter for Testimonial List</summary>
+		public static Archetype.Models.ArchetypeModel GetTestimonialList(ITestimonialsControls that) { return that.GetPropertyValue<Archetype.Models.ArchetypeModel>("testimonialList"); }
 
 		///<summary>
 		/// Testimonials Introduction: Enter the introduction content for the testimonials section
